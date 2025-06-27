@@ -1,0 +1,89 @@
+2025-06-27 14:04:39.865299-03:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "insert into filmes (ano, diretor, genero, sinopse, titulo) values[*]"; expected "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+insert into filmes (ano, diretor, genero, sinopse, titulo) values [42001-232]
+2025-06-27 14:12:04.158045-03:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ELENCO" not found; SQL statement:
+INSERT INTO elenco (data_nascimento, nacionalidade, nome, id_filme) VALUES
+('1979-04-06', 'Espanhola', 'Oscar Isaac', 1),
+('1995-10-27', 'Francesa', 'Timothée Chalamet', 1),
+('1989-02-26', 'Americana', 'Zendaya', 2),
+('1997-12-14', 'Americana', 'Hunter Schafer', 2),
+('1970-11-04', 'Americana', 'Matthew McConaughey', 3),
+('1981-10-04', 'Americana', 'Jessica Chastain', 3),
+('1980-05-13', 'Francesa', 'Eva Green', 4),
+('1978-12-27', 'Francês', 'Vincent Cassel', 4),
+('1969-11-04', 'Americana', 'Matthew McConaughey', 5),
+('1981-04-15', 'Canadense', 'Jennifer Garner', 5),
+('1967-07-18', 'Americana', 'Vin Diesel', 6),
+('1973-09-12', 'Americana', 'Paul Walker', 6),
+('1974-08-15', 'Americana', 'Ben Affleck', 7),
+('1975-01-19', 'Britânica', 'Rosamund Pike', 7),
+('1943-11-17', 'Americana', 'Robert De Niro', 8),
+('1944-12-17', 'Americana', 'Joe Pesci', 8),
+('1987-10-15', 'Americana', 'Miles Teller', 9),
+('1955-12-16', 'Americana', 'J.K. Simmons', 9),
+('1958-07-06', 'Americana', 'Tom Hanks', 10),
+('1957-09-22', 'Britânico', 'Tim Robbins', 10),
+('1970-07-30', 'Britânico', 'Christopher Nolan', 11),
+('1976-05-14', 'Irlandês', 'Cillian Murphy', 11),
+('1969-06-12', 'Americana', 'Brendan Fraser', 12),
+('2001-05-22', 'Americana', 'Sadie Sink', 12),
+('1992-06-14', 'Americana', 'Sosie Bacon', 13),
+('1984-10-11', 'Britânico', 'Kyle Gallner', 13),
+('1992-11-28', 'Sul-Coreana', 'Greta Lee', 14),
+('1985-03-19', 'Americana', 'Teo Yoo', 14),
+('1990-07-02', 'Canadense', 'Margot Robbie', 15),
+('1980-07-21', 'Americano', 'Ryan Gosling', 15),
+('1947-03-07', 'Britânico', 'Jack Nicholson', 16),
+('1949-07-30', 'Britânica', 'Shelley Duvall', 16),
+('1960-10-23', 'Austríaco', 'Ulrich Mühe', 17),
+('1971-06-04', 'Alemão', 'Arno Frisch', 17),
+('1961-10-09', 'Bielorrusso', 'Aleksei Kravchenko', 18),
+('1950-05-10', 'Bielorrusso', 'Olga Mironova', 18),
+('1996-12-02', 'Britânico', 'George MacKay', 19),
+('1996-04-18', 'Britânico', 'Dean-Charles Chapman', 19),
+('1997-03-20', 'Americano', 'Nicholas Hoult', 20),
+('1982-04-09', 'Americana', 'Kiefer Sutherland', 20),
+('1974-06-04', 'Americana', 'Hilary Swank', 21),
+('1930-05-31', 'Americano', 'Clint Eastwood', 21),
+('1978-10-01', 'Dinamarquês', 'Morten Burian', 22),
+('1980-05-18', 'Dinamarquesa', 'Sidsel Siem Koch', 22),
+('1882-12-26', 'Alemão', 'Max Schreck', 23),
+('1883-02-05', 'Alemã', 'Greta Schröder', 23),
+('1996-02-03', 'Americana', 'Anya Taylor-Joy', 24),
+('1966-06-07', 'Britânico', 'Ralph Ineson', 24),
+('1974-11-11', 'Americano', 'Leonardo DiCaprio', 25),
+('1943-08-17', 'Americano', 'Robert De Niro', 25) [42102-232]
+2025-06-27 14:18:26.892598-03:00 database: close
+org.h2.message.DbException: IO Exception: "Closing" [90028-232]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.mvstore.db.Store.close(Store.java:374)
+	at org.h2.engine.Database.closeOpenFilesAndUnlock(Database.java:1292)
+	at org.h2.engine.Database.closeImpl(Database.java:1254)
+	at org.h2.engine.Database.close(Database.java:1173)
+	at org.h2.engine.Database.onShutdown(Database.java:1158)
+	at org.h2.engine.OnExitDatabaseCloser.onShutdown(OnExitDatabaseCloser.java:85)
+	at org.h2.engine.OnExitDatabaseCloser.run(OnExitDatabaseCloser.java:114)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: IO Exception: "Closing" [90028-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 8 more
+Caused by: org.h2.mvstore.MVStoreException: java.lang.AssertionError [2.3.232/3]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.MVStore.executeFilestoreOperation(MVStore.java:926)
+	at org.h2.mvstore.RandomAccessStore.compactMoveChunks(RandomAccessStore.java:463)
+	at org.h2.mvstore.RandomAccessStore.compactStore(RandomAccessStore.java:443)
+	at org.h2.mvstore.FileStore.compactStore(FileStore.java:890)
+	at org.h2.mvstore.FileStore.stop(FileStore.java:275)
+	at org.h2.mvstore.MVStore.closeStore(MVStore.java:693)
+	at org.h2.mvstore.MVStore.close(MVStore.java:643)
+	at org.h2.mvstore.db.Store.close(Store.java:364)
+	... 6 more
+Caused by: java.lang.AssertionError
+	at org.h2.mvstore.RandomAccessStore.moveChunkInside(RandomAccessStore.java:630)
+	at org.h2.mvstore.RandomAccessStore.compactMoveChunks(RandomAccessStore.java:569)
+	at org.h2.mvstore.RandomAccessStore.compactMoveChunks(RandomAccessStore.java:481)
+	at org.h2.mvstore.RandomAccessStore.lambda$compactMoveChunks$1(RandomAccessStore.java:468)
+	at org.h2.mvstore.FileStore.executeFileStoreOperation(FileStore.java:1893)
+	at org.h2.mvstore.MVStore.executeFilestoreOperation(MVStore.java:922)
+	... 13 more
