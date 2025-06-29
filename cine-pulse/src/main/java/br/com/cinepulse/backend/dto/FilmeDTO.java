@@ -14,6 +14,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FilmeDTO {
+    private Long id;
+
     @NotBlank(message = "campo 'titulo' não está preenchido.")
     private String titulo;
 

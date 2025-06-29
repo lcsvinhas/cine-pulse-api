@@ -87,11 +87,12 @@ public class FilmeService {
                 return dto;
             }).toList();
         }
-        return new FilmeDTO(filme.getTitulo(), filme.getSinopse(), filme.getGenero(), filme.getDiretor(), filme.getAno(), elenco);
+        return new FilmeDTO(filme.getId(), filme.getTitulo(), filme.getSinopse(), filme.getGenero(), filme.getDiretor(), filme.getAno(), elenco);
     }
 
     private Filme toEntity(FilmeDTO filmeDTO) {
         Filme filme = new Filme();
+        filme.setId(filmeDTO.getId());
         filme.setTitulo(filmeDTO.getTitulo());
         filme.setSinopse(filmeDTO.getSinopse());
         filme.setGenero(filmeDTO.getGenero());
