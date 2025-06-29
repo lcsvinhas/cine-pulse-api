@@ -1,9 +1,5 @@
-package br.com.maestro.backend.exception;
+package br.com.cinepulse.backend.exception;
 
-import br.com.cinepulse.backend.exception.AtorException;
-import br.com.cinepulse.backend.exception.ErroResposta;
-import br.com.cinepulse.backend.exception.FilmeException;
-import br.com.cinepulse.backend.exception.UsuarioException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
@@ -60,6 +56,11 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(AtorException.class)
     protected ResponseEntity<Object> handleAtorException(AtorException ex) {
+        return ResponseEntity.badRequest().body(ex.getMessage());
+    }
+
+    @ExceptionHandler(FotoException.class)
+    protected ResponseEntity<Object> handleFotoException(FotoException ex) {
         return ResponseEntity.badRequest().body(ex.getMessage());
     }
 }

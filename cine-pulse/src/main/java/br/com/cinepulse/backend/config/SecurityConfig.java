@@ -40,12 +40,12 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET, "/atores/**").permitAll()
 
                         // FILMES
-                        .requestMatchers(HttpMethod.POST, "/filmes").hasAnyRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST, "/filmes/**").hasAnyRole("ADMIN")
                         .requestMatchers(HttpMethod.PUT, "/filmes/**").hasAnyRole("ADMIN")
                         .requestMatchers(HttpMethod.DELETE, "/filmes/**").hasAnyRole("ADMIN")
 
                         // ATORES
-                        .requestMatchers(HttpMethod.POST, "/atores").hasAnyRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST, "/atores/**").hasAnyRole("ADMIN")
                         .requestMatchers(HttpMethod.PUT, "/atores/**").hasAnyRole("ADMIN")
                         .requestMatchers(HttpMethod.DELETE, "/atores/**").hasAnyRole("ADMIN")
                         .anyRequest().authenticated()
@@ -73,7 +73,7 @@ public class SecurityConfig {
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration corsConfiguration = new CorsConfiguration();
-        corsConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:5173", "http://localhost:2000"));
+        corsConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:5173", "http://localhost:2000", "http://localhost:8081"));
         corsConfiguration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD"));
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", corsConfiguration.applyPermitDefaultValues());
