@@ -22,6 +22,11 @@ public class UsuarioController {
         return ResponseEntity.ok(service.listar());
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<UsuarioResponseDTO> getUsuarioLogado(@PathVariable Long id) {
+        return ResponseEntity.ok(service.buscarPorId(id));
+    }
+
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public UsuarioResponseDTO inserir(@RequestBody UsuarioRequestDTO usuario) {

@@ -42,6 +42,11 @@ public class UsuarioService {
         return usuariosDTO;
     }
 
+    public UsuarioResponseDTO buscarPorId(Long id) {
+        Usuario usuario = repository.findById(id).orElseThrow(() -> new UsuarioException("Usuário não encontrado"));
+        return new UsuarioResponseDTO(usuario.getId(), usuario.getNome(), usuario.getEmail());
+    }
+
     @Transactional
     public UsuarioResponseDTO inserir(UsuarioRequestDTO usuario) {
         Optional<Usuario> u = repository.findByEmail(usuario.getEmail());

@@ -38,6 +38,8 @@ public class SecurityConfig {
                         .requestMatchers("/h2/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/filmes/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/atores/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/auth/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/usuarios/**").permitAll()
 
                         // FILMES
                         .requestMatchers(HttpMethod.POST, "/filmes/**").hasAnyRole("ADMIN")
@@ -73,7 +75,7 @@ public class SecurityConfig {
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration corsConfiguration = new CorsConfiguration();
-        corsConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:5173", "http://localhost:2000", "http://localhost:8081"));
+        corsConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:5173", "http://localhost:2000"));
         corsConfiguration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD"));
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", corsConfiguration.applyPermitDefaultValues());
