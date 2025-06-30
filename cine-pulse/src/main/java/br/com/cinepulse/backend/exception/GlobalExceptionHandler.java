@@ -63,4 +63,9 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     protected ResponseEntity<Object> handleFotoException(FotoException ex) {
         return ResponseEntity.badRequest().body(ex.getMessage());
     }
+
+    @ExceptionHandler(ContatoException.class)
+    protected ResponseEntity<Object> handleContatoException(ContatoException ex) {
+        return ResponseEntity.badRequest().body(ex.getMessage());
+    }
 }
